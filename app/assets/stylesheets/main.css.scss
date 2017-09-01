@@ -1,0 +1,92 @@
+// import the CSS framework
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "framework";
+
+$fellows-blue: #0a02b2;   // 'Deep Blue'
+$fellows-background: #F1F1F1;
+
+.layout-container {
+  .main-container {
+    .content-heading {
+      box-shadow:none;
+    }
+    .bg-white {
+      background-color:$fellows-background;
+    }
+  }
+}
+
+.layout-container > header  {
+  font-family: 'Muli', sans-serif;
+  background-color: $fellows-blue !important;
+  nav {
+    min-width:900px;
+    img {
+      display: inline-block;
+      height: 25px;
+      margin: 20px 20px;
+      float: left;
+    }
+    span {
+      color:#fff;
+    }
+    a.rounded-border {
+      height: 35px;
+      line-height: 35px;
+      vertical-align: middle;
+      margin: 15px 5px;
+      border: 2px solid white;
+      border-radius: 50px;
+    }
+    .top-nav-link {
+      letter-spacing: 2px;
+    }
+  }
+  ul.menu {
+    li {
+      text-transform: uppercase;
+      a.selected, a:hover {
+        border-bottom:6px solid #fff;
+      }
+      a {
+        border-bottom:6px solid $fellows-blue;
+      }
+    }
+  }
+}
+
+// make all images responsive by default
+img {
+  @extend .img-responsive;
+  margin: 0 auto;
+}
+
+a:hover {
+  text-decoration:none;
+}
+
+.grey-link {
+  color: grey;
+}
+
+.w-60 {
+  width: 60%;
+}
+
+.btn-primary {
+  background-color: #E85837;
+  color:#fff;
+  text-transform: uppercase;
+  border: 0;
+  -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.014);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.14), 0 2px 2px 0 rgba(0, 0, 0, 0.098), 0 1px 5px 0 rgba(0, 0, 0, 0.014);
+  &:hover {
+    color:#fff;
+    background-color: #E85837
+  }
+  &:hover, &:active, &.active {
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4) !important;
+  }
+}

@@ -1,0 +1,21 @@
+<%= form_tag('/lookup/validate') do -%>
+
+  <fieldset class="form-group">
+    <legend>What does the spell "<%= @mention.name %>" do?</legend>
+    <blockquote>
+      <p>"<%= @mention.quote %>"
+    </blockquote>
+
+    <% @options.each do |option| %>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="answer" value="<%= option %>" checked>
+       <%= option %>
+      </label>
+    </div>
+    <% end %>
+    <input type="text" name="spell_name" value="<%= @mention.name %>" hidden="true"/>
+  </fieldset>
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+<% end -%>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%= render 'layouts/head' %>
+</head>
+<body class="theme-1 sidebar-offcanvas" id="<%= params[:controller].parameterize %>_controller">
+  <div class="layout-container">
+     <%= render 'layouts/top_navbar' %>
+    <!-- Main section-->
+    <main class="main-container">
+      <!-- Page content-->
+      <section class="bg-white">
+        <div class="container-fluid">
+          <%= render 'layouts/messages' %>
+          <div class="row">
+            <div class="col-sm-12">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Page footer-->
+      <footer><span>2017 - </span><a target="_blank" href="http://www.code2040.org/" class="grey-link">CODE2040</a></footer>
+    </main>
+  </div>
+
+</body>
+</html>

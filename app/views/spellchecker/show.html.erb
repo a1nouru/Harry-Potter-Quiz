@@ -1,0 +1,13 @@
+<p class='lead'>Once your code passes the automated test spec, enter these codes on the fellows application to advance to the next section.
+
+<% @checks.each_with_index do |check, i| %>
+<div class="form-group col-sm-8">
+  <label for="spell-<%= i + 1 %>">Spell <%= i + 1 %></label>
+  <div>
+  <input class="form-control pull-left w-60" type="text" value="<%= check %>" id="spell-<%= i + 1 %>" readonly='true'>
+  <a class='btn btn-primary clipboard' data-toggle="popover" data-trigger="manual" data-placement="right" data-animate='true' data-content="Copied to clipboard.">
+    <i class="fa fa-clipboard"></i> Copy
+  </a>
+  </div>
+</div>
+<% end %>

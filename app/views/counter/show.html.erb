@@ -1,0 +1,18 @@
+<%= form_tag('/counter/validate') do -%>
+
+  <fieldset class="form-group">
+    <legend>How many times was the spell "<%= @spell.name %>" said?</legend>
+
+    <% @options.each do |option| %>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="answer" value="<%= option %>" checked>
+       <%= option %>
+      </label>
+    </div>
+    <% end %>
+    <input type="text" name="spell_mention_count" value="<%= @spell.mention_count %>" hidden="true"/>
+  </fieldset>
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+<% end -%>

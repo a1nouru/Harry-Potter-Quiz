@@ -1,0 +1,35 @@
+<!-- top navbar-->
+<header class="header-container">
+  <nav>
+    <ul class="visible-xs-block">
+      <li><a id="offcanvas-toggler" href="#" class="menu-link menu-link-slide"><span><em></em></span></a></li>
+    </ul>
+
+    <%= link_to '/' do %>
+      <%= image_tag asset_path 'code2040_logo_white.png' %>
+    <% end %>
+
+    <ul class="hidden-xs menu">
+      <%= render 'layouts/nav_menu_left' %>
+    </ul>
+
+    <ul class="pull-right hidden-xs menu">
+      <%= render 'layouts/nav_menu_right' %>
+    </ul>
+
+  </nav>
+</header>
+
+<aside class="sidebar-container">
+  <div class="sidebar-content">
+    <nav class="sidebar-nav">
+      <ul>
+        <%= render 'layouts/nav_menu_left' %>
+      </ul>
+
+      <ul class="pull-right hidden-xs">
+        <%= render 'layouts/nav_menu_right' %>
+      </ul>
+    </nav>
+  </div>
+</aside>

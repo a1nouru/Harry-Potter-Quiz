@@ -1,0 +1,17 @@
+<%= form_tag('/reverse/validate') do -%>
+
+  <fieldset class="form-group">
+    <legend>Which of the following is a reversed spell?</legend>
+
+    <% @options.each do |option| %>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="answer" value="<%= option %>" checked>
+       <%= option %>
+      </label>
+    </div>
+    <% end %>
+  </fieldset>
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+<% end -%>
