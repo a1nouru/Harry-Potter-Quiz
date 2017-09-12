@@ -8,7 +8,7 @@ class CounterController < ApplicationController
 
   # POST /counter/validate
   def validate
-    if QuizBuilder.counter_success?(params[:answer].to_i, params[:spell_mention_counter].to_i)
+    if QuizBuilder.counter_success?(params[:answer].to_i, params[:spell_mention_count].to_i)
       render 'shared/success'
     else
       render 'shared/fail'

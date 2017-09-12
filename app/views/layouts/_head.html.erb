@@ -6,7 +6,7 @@
 <title><%= content_for?(:title) ? yield(:title) : (content_for?(:heading) ? yield(:heading) : "Potter") %></title>
 <%= csrf_meta_tags %>
 
-<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag    'application', media: 'all' %>
+<%= javascript_include_tag 'application' %>
 
 <link rel="icon" type="image/png" href="<%= image_path 'favicon-32x32.png' %>" sizes="32x32">

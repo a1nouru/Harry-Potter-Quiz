@@ -5,15 +5,14 @@ class Spell
   def initialize(params)
     @classification = params["Classification"]
     @effect = params["Effect"]
-    @number = params["Number of Records"]
     @name = params["Spell(Lower)"]
     @formatted_name = params["Spell"]
   end
 
-  attr_reader :classification, :effect, :number, :name, :formatted_name
+  attr_reader :classification, :effect, :name, :formatted_name
 
   def self.data
-    path = Rails.root.join('data', 'spells.json')
+    path = 'data/spells.json'
     file = File.read(path)
     JSON.parse(file)
   end
@@ -66,7 +65,10 @@ class Spell
   # If none are found it should return nil.
   # Tests: `bundle exec rspec -t lookup .`
   def self.find_by_mention(mention)
-    new({'Effect' => 'write this method'})
+    Spell.new({"Classification" => 'write this method',
+               "Effect" => 'write this method',
+               "Spell(Lower)" => 'write this method',
+               "Spell" => 'write this method'})
   end
 
 end

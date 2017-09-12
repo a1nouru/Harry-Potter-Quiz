@@ -7,37 +7,32 @@ let(:spell_data) {
       {
         "Classification": "Charm",
         "Effect": "Opens locked objects",
-        "Number of Records": 1,
         "Spell(Lower)": "alohomora",
         "Spell": "Alohomora"
       },
       {
         "Classification": "Curse",
         "Effect": "Tortures opponentUnforgivable",
-        "Number of Records": 1,
         "Spell(Lower)": "crucio",
         "Spell": "Crucio"
       },
       {
         "Classification": "Jinx",
         "Effect": "Knocks an object backwards",
-        "Number of Records": 1,
         "Spell(Lower)": "flipendo",
         "Spell": "Flipendo"
       },
       {
         "Classification": "Curse",
         "Effect": "Murders opponentUnforgivable",
-        "Number of Records": 1,
         "Spell(Lower)": "avadakedavra",
         "Spell": "Avada Kedavra"
       },
       {
-      "Classification": "Charm",
-      "Effect": "Turns small objects into birds",
-      "Number of Records": 1,
-      "Spell(Lower)": "avifors",
-      "Spell": "Avifors"
+        "Classification": "Charm",
+        "Effect": "Turns small objects into birds",
+        "Spell(Lower)": "avifors",
+        "Spell": "Avifors"
     }
     ]')
   }
@@ -45,32 +40,24 @@ let(:spell_data) {
   let(:mention_data) {
     JSON.parse('[
       {
-        "sort-order": 1,
-        "Number of Records": 1,
         "Book": "1: SS",
         "Concordance": ". they tugged and heaved at the door, but it wouldn’t budge, not even when hermione tried her alohomora charm, now what? said ron, these birds … they can’t be here just for decoration,",
         "Position": 82471,
         "Spell": "alohomora"
       },
       {
-        "sort-order": 1,
-        "Number of Records": 1,
         "Book": "1: SS",
         "Concordance": "oh, move over, hermione snarled, she grabbed Harry’s wand, tapped the lock, and whispered, alohomora! the lock clicked and the door swung open — they piled through it, shut it quickly,",
         "Position": 47346,
         "Spell": "alohomora"
       },
       {
-        "sort-order": 1,
-        "Number of Records": 1,
         "Book": "4: GoF",
         "Concordance": ", master, forgive me! forgive us all! voldemort began to laugh, he raised his wand, crucio! the death eater on the ground writhed and shrieked; Harry was sure the sound must carry to",
         "Position": 517967,
         "Spell": "crucio"
       },
       {
-        "sort-order": 1,
-        "Number of Records": 1,
         "Book": "2: CoS",
         "Concordance": "think getting your head cut open makes you that special, myself, crabbe and goyle were sniggering stupidly, eatslugs, malfoy, said ron angrily, crabbe stopped laughing and started rubbing his knuckles in a menacing way",
         "Position": 120026,
@@ -82,13 +69,13 @@ let(:spell_data) {
   before { allow(Mention).to receive(:data).and_return(mention_data) }
   before { allow(Spell).to receive(:data).and_return(spell_data) }
 
-  let(:spell_alohomora) { Spell.new(Spell.data.first) }
-  let(:spell_crucio) { Spell.new(Spell.data.second) }
-  let(:spell_flipendo) { Spell.new(Spell.data.third) }
+  let(:spell_alohomora) { Spell.new(Spell.data[0]) }
+  let(:spell_crucio) { Spell.new(Spell.data[1]) }
+  let(:spell_flipendo) { Spell.new(Spell.data[2]) }
 
-  let(:mention_alohomora1) { Mention.new(Mention.data.first) }
-  let(:mention_alohomora2) { Mention.new(Mention.data.second) }
-  let(:mention_eatslugs) { Mention.new(Mention.data.fourth) }
+  let(:mention_alohomora1) { Mention.new(Mention.data[0]) }
+  let(:mention_alohomora2) { Mention.new(Mention.data[1]) }
+  let(:mention_eatslugs) { Mention.new(Mention.data[3]) }
 
   describe "Spell 1: Reverse", :reverse do
     describe "Spell#reverse_name" do
@@ -157,7 +144,7 @@ let(:spell_data) {
   describe "Spell 4: Lookup", :lookup do
     describe "Spell::find_by_mention(mention)" do
 
-      let(:ivs) {[:classification, :effect, :number, :name, :formatted_name]}
+      let(:ivs) {[:classification, :effect, :name, :formatted_name]}
 
       context 'when there is a spell with same name as the mention\'s name' do
         it "should return a spell" do
