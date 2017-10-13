@@ -1,6 +1,5 @@
 require_relative 'boot'
 
-require  "active_record/railtie" if ENV["RAILS_ENV"] == 'production'
 require  "action_controller/railtie"
 require  "action_view/railtie"
 require  "action_mailer/railtie"

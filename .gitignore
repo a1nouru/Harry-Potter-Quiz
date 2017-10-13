@@ -18,3 +18,8 @@
 /yarn-error.log
 
 .byebug_history
+
+# bundler state
+/.bundle
+/vendor/bundle/
+/vendor/ruby/
