@@ -25,6 +25,11 @@ class Spell
     data.map{|el| el["Effect"]}
   end
 
+# Added method to generate 3 other sample spell names
+  def self.names
+    data.map{|el| el["Spell(Lower)"]}
+  end
+
   # These two methods are used to validate answers
   def self.is_spell_name?(str)
     data.index { |el| el["Spell(Lower)"] == (str.downcase) }
@@ -77,6 +82,21 @@ def names_with_same_first_letter
     end
     
     return arrSpell
+end
+
+# most_frequent_spell in the book of harry potter method
+def self.count_Max_Spell
+  spellArray =  []
+  dataUsing = Spell.data
+ 
+  for i in dataUsing
+      spellArray.push(i["Spell"])
+  end
+ 
+  most_frequent_spell = spellArray.uniq.max_by{ |i| spellArray.count( i ) }
+ 
+return most_frequent_spell
+
 end
 
 # Spell 4: Lookup
